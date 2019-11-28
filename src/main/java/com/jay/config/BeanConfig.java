@@ -13,7 +13,7 @@ public class BeanConfig {
     return new Foo();
   }
 
-  @Bean
+  @Bean(initMethod = "processorInit")
   public InstanceValidationBeanPostProcessor instanceValidationBeanPostProcessor() {
     return new InstanceValidationBeanPostProcessor();
   }

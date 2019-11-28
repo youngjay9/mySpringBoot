@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: mySpringBoot
+
+Server:
+   port: 2001

@@ -6,17 +6,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.core.Ordered;
 
-public class InstanceValidationBeanPostProcessor implements BeanPostProcessor, Ordered {
+public class InstanceValidationBeanPostProcessor implements BeanPostProcessor{
 
   private static Logger logger = LoggerFactory
       .getLogger(InstanceValidationBeanPostProcessor.class);
 
-  private int order;
-
   public InstanceValidationBeanPostProcessor() {
     logger.info("Created InstanceValidationBeanPostProcessor instance");
+  }
+
+  public void processorInit(){
+    logger.info("InstanceValidationBeanPostProcessor's processorInit");
   }
 
   @Override
@@ -39,15 +40,4 @@ public class InstanceValidationBeanPostProcessor implements BeanPostProcessor, O
     }
     return bean;
   }
-
-  public void setOrder(int order) {
-    logger.info("InstanceValidationBeanPostProcessor setOrder:" + order);
-    this.order = order;
-  }
-
-  @Override
-  public int getOrder() {
-    return order;
-  }
-
 }
